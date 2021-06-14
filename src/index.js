@@ -1,17 +1,23 @@
+// importing React allows us to access the react library
 import React from 'react';
+//importing browser router as router allows us to use the route function
+import { BrowserRouter as Router } from 'react-router-dom';
+// reactDom renders the application
 import ReactDOM from 'react-dom';
+// DayDrinking is my app
+import { DogBlog } from "./Dogblog.js";
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+
+// Router allows us to route our application(change url)
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+    <DogBlog />
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
