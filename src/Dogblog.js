@@ -6,11 +6,12 @@ import { Route } from "react-router-dom"
 import { ApplicationView } from "./components/AplicationViews.js"
 //import { Nav } from "./Nav/Nav"
 //import "./Dogblog.css"
+import { Login } from "./components/auth/Login.js"
 
 
 export const DogBlog = () => (
   <>
     {/* <Route render={props => <Nav {...props} />} /> */}
-    <Route render={props => <ApplicationView {...props} />} />
+    <Route path="/login" render={props => <Login {...props} />} />
   </>
 )
