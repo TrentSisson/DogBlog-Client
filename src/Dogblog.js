@@ -4,14 +4,14 @@ import { Route } from "react-router-dom"
 //import { Login } from "./auth/Login"
 //applicationview is what is rendered on a certain pathway
 import { ApplicationView } from "./components/AplicationViews.js"
-//import { Nav } from "./Nav/Nav"
+import { NavBar } from "./components/nav/Nav.js"
 //import "./Dogblog.css"
-import { Login } from "./components/auth/Login.js"
+
 
 
 export const DogBlog = () => (
   <>
-    {/* <Route render={props => <Nav {...props} />} /> */}
-    <Route path="/login" render={props => <Login {...props} />} />
+    <Route render={props => <NavBar {...props} />} />
+    <Route render={props => <ApplicationView {...props} />} />
   </>
 )
