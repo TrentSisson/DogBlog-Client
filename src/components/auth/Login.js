@@ -1,6 +1,5 @@
 import React, { useRef } from "react"
 import { Link } from "react-router-dom";
-import "./Login.css"
 
 
 export const Login = props => {
@@ -10,7 +9,7 @@ export const Login = props => {
     const passwordDialog = useRef()
 
     const existingUserCheck = () => {
-        return fetch(`http://localhost:8088/customers?email=${email.current.value}`)
+        return fetch(`http://localhost:8088/users?email=${email.current.value}`)
             .then(_ => _.json())
             .then(user => user.length ? user[0] : false)
     }
