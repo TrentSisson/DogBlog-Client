@@ -6,7 +6,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 // DayDrinking is my app
 import { DogBlog } from "./Dogblog.js";
-import './index.css';
 
 
 // Router allows us to route our application(change url)
