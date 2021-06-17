@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react"
 import { PostContext } from "./PostProvider.js"
 import { Post } from "./Post"
 export const PostList = (props) => {
-    const { posts, getPosts } = useContext(PostContext)
+    const { getPosts, posts } = useContext(PostContext)
     useEffect(() => {
         getPosts()
     }, [])

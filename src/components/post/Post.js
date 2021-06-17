@@ -7,10 +7,10 @@ export const Post = ({ post }) => {
         return (
             < section key={`post--${post.id}`} className="postCard" >
                 <div className="post__title">Title: {post.title}</div>
-                <div className="post__content">Content: {post.content}</div>
-                <div className="post__creationDate">Creation Date: {post.post_date}</div>
+                <div className="post__content">Content: {post.text}</div>
+                <div className="post__creationDate">Creation Date: {post.date}</div>
                 <Link key={post.id} id={post.id} to={{ pathname: `/create/${post.id}`, state: { selectedPost: post } }} >
-                    <button> Edit Post </button>
+                    <button> Edit Task </button>
                 </Link>
                 <button onClick={() => {
                     destroyPost(post.id)
@@ -20,8 +20,8 @@ export const Post = ({ post }) => {
     } else return (
         <section key={`post--${post.id}`} className="postCard" >
             <div className="post__title">Title: {post.title}</div>
-            <div className="post__content">Content: {post.content}</div>
-            <div className="post__creationDate">Creation Date: {post.post_date}</div>
+            <div className="post__content">Content: {post.text}</div>
+            <div className="post__creationDate">Creation Date: {post.date}</div>
         </section>
     )
 }

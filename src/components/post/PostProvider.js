@@ -1,12 +1,13 @@
 import React from "react"
 import { useState } from "react"
+import { Token } from "../../Token"
 export const PostContext = React.createContext()
 export const PostProvider = (props) => {
     const [posts, setPosts] = useState([])
     const getPosts = () => {
         return fetch("http://localhost:8000/posts", {
             headers: {
-                "Authorization": `Token ${localStorage.getItem("Post_user")}`
+                "Authorization": Token()
               }
         })
         .then(r => r.json())
@@ -17,7 +18,7 @@ export const PostProvider = (props) => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Token ${localStorage.getItem("Post_user")}`
+                "Authorization": Token()
             },
             body: JSON.stringify(newPost)
         })
@@ -28,7 +29,7 @@ export const PostProvider = (props) => {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Token ${localStorage.getItem("Post_user")}`
+                "Authorization": Token()
             },
             body: JSON.stringify(updatedPost)
         })
@@ -38,7 +39,7 @@ export const PostProvider = (props) => {
         return fetch(`http://localhost:8000/posts/${id}`, {
             method: "DELETE",
             headers: {
-                "Authorization": `Token ${localStorage.getItem("Post_user")}`
+                "Authorization": Token()
               }
         })
         .then(getPosts)
