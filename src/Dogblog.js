@@ -5,7 +5,7 @@ import { Route } from "react-router-dom"
 //applicationview is what is rendered on a certain pathway
 import { ApplicationView } from "./components/AplicationViews.js"
 import { NavBar } from "./components/nav/Nav.js"
-//import "./Dogblog.css"
+import "./Dogblog.css"
 
 
 
