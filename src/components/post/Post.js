@@ -1,27 +1,14 @@
-import React, { useContext } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
-import { PostContext } from "./PostProvider.js"
+import "./Post.css"
+
 export const Post = ({ post }) => {
-    const { destroyPost } = useContext(PostContext)
-    if (localStorage.getItem("Post_user")) {
-        return (
-            < section key={`post--${post.id}`} className="postCard" >
-                <div className="post__title">Title: {post.title}</div>
-                <div className="post__content">Content: {post.text}</div>
-                <div className="post__creationDate">Creation Date: {post.date}</div>
-                <Link key={post.id} id={post.id} to={{ pathname: `/create/${post.id}`, state: { selectedPost: post } }} >
-                    <button> Edit Task </button>
-                </Link>
-                <button onClick={() => {
-                    destroyPost(post.id)
-                }}> Delete </button>
-            </section >
-        )
-    } else return (
-        <section key={`post--${post.id}`} className="postCard" >
-            <div className="post__title">Title: {post.title}</div>
-            <div className="post__content">Content: {post.text}</div>
-            <div className="post__creationDate">Creation Date: {post.date}</div>
-        </section>
+
+
+    return (
+        < section key={`post--${post.id}`} className="postCard" >
+            <div className="Details">Title:{post.title}<Link key={post.id} id={post.id} to={{ pathname: `/details/${post.id}`, state: { selectedPost: post } }} > <button>READ</button></Link></div>
+            <div className="date">Created:{post.date}</div>
+        </section >
     )
 }

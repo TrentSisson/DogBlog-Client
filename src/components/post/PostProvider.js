@@ -8,10 +8,18 @@ export const PostProvider = (props) => {
         return fetch("http://localhost:8000/posts", {
             headers: {
                 "Authorization": Token()
-              }
+            }
         })
-        .then(r => r.json())
-        .then(setPosts)
+            .then(r => r.json())
+            .then(setPosts)
+    }
+    const getPostById = id => {
+        return fetch(`http://localhost:8000/posts/${id}`, {
+            headers: {
+                "Authorization": Token()
+            }
+        })
+            .then(res => res.json())
     }
     const addPost = newPost => {
         return fetch("http://localhost:8000/posts", {
@@ -24,7 +32,7 @@ export const PostProvider = (props) => {
         })
             .then(newPost)
     }
-    const updatePost=(updatedPost)=>{
+    const updatePost = (updatedPost) => {
         return fetch(`http://localhost:8000/posts/${updatedPost.id}`, {
             method: "PUT",
             headers: {
@@ -40,12 +48,12 @@ export const PostProvider = (props) => {
             method: "DELETE",
             headers: {
                 "Authorization": Token()
-              }
+            }
         })
-        .then(getPosts)
+            .then(getPosts)
     }
     return (
-        <PostContext.Provider value={{posts, setPosts, getPosts, addPost, updatePost, destroyPost}}>
+        <PostContext.Provider value={{ posts, setPosts, getPosts, getPostById, addPost, updatePost, destroyPost }}>
             {props.children}
         </PostContext.Provider>
     )
